@@ -1,0 +1,86 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary and system files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Deep Learning Models & Weights (Heavy Files)
+*.pth
+*.pt
+*.onnx
+*.h5
+*.hdf5
+*.bin
+*.weights
+*.ckpt
+checkpoints/
+models/checkpoints/
+
+# Datasets & Raw Records (Heavy Data)
+data/raw/
+data/processed/
+data/adversarial_tests/
+data/
+*.dat
+*.hea
+*.mat
+*.wfdb
+
+# Cache & Testing
+.cache/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Internal Docs, Notes, Tests & Scratch (Keep Local Only)
+docs/
+tests/
+notebooks/
+reports/
+HOSSAM REPORT/
+*ROADMAP*.md
+*.docx
+*.doc
+*.pdf
+generate_academic_figure.py
+generate_adversarial_ecg.py
+generate_architecture_diagram.py
+
+

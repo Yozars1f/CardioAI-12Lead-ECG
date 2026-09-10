@@ -1,0 +1,57 @@
+# CardioAI_12Lead_ECG Phase 1 Configuration
+# Standardized parameters for PTB-XL (100Hz) Data Engineering & Validation
+
+project:
+  name: "CardioAI_12Lead_ECG"
+  stage: "Phase_1_Data_Engineering"
+  author: "Youssef Ahmad, MD"
+  track: "Cardiovascular AI & Clinical Data Science"
+
+dataset:
+  name: "PTB-XL"
+  version: "1.0.3"
+  physionet_url: "https://physionet.org/static/published-projects/ptb-xl/ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.3.zip"
+  raw_dir: "data/raw/ptb-xl"
+  processed_dir: "data/processed"
+  
+  # ECG Signal Properties
+  sampling_rate_hz: 100
+  signal_duration_sec: 10
+  num_timesteps: 1000
+  num_leads: 12
+  lead_names:
+    - "I"
+    - "II"
+    - "III"
+    - "aVR"
+    - "aVL"
+    - "aVF"
+    - "V1"
+    - "V2"
+    - "V3"
+    - "V4"
+    - "V5"
+    - "V6"
+
+  # 5 Diagnostic Superclasses (AHA/ACC Standardized via PTB-XL scp_statements.csv)
+  diagnostic_classes:
+    - "NORM"   # Normal ECG
+    - "MI"     # Myocardial Infarction
+    - "STTC"   # ST/T Change
+    - "CD"     # Conduction Disturbance
+    - "HYP"    # Hypertrophy
+
+  # Zero Data Leakage Stratification
+  stratification:
+    train_folds: [1, 2, 3, 4, 5, 6, 7, 8]
+    val_folds: [9]
+    test_folds: [10]
+
+preprocessing:
+  normalization: "z_score_per_lead"
+  eps: 1.0e-7
+
+dataloader:
+  batch_size: 64
+  num_workers: 2
+  pin_memory: true
